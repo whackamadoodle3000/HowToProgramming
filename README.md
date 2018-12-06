@@ -1,6 +1,11 @@
 # How to Programming
 
 
+#### Use Motors
+
+- To import `import com.ctre.phoenix.motorcontrol.can.*;`
+- To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
+- To use `Motor.set(value)` with value between -1 and 1
 
 #### Make Motor Spin with Joystick Input　
 
