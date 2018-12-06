@@ -2,7 +2,7 @@
 
 
 
-###Make Motor Spin with Joystick Input　
+#### Make Motor Spin with Joystick Input　
 
 ```java
 package org.usfirst.frc.team972.robot;
@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot {
 ```
 
 
-####Arcade Drive　
+#### Arcade Drive　
 
 ```java
 package org.usfirst.frc.team972.robot;
@@ -108,7 +108,7 @@ public class Robot extends IterativeRobot {
 }
 ```
 
-####Tank Drive　
+#### Tank Drive　
 
 ```java
 package org.usfirst.frc.team972.robot;
