@@ -2,7 +2,7 @@
 
 
 
-####Make Motor Spin with Joystick Input　
+###Make Motor Spin with Joystick Input　
 
 ```java
 package org.usfirst.frc.team972.robot;
