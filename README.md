@@ -5,12 +5,10 @@
 
 - To import `import com.ctre.phoenix.motorcontrol.can.*;`
 - To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
-
 - To use `Motor.set(value)` with value between -1 and 1
 #### Use joysticks
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
-
 - To get axis values `Joy.getRawAxis(0);` with value between -1 and 1
 - To get button values `Joy.getRawButton(0);` with boolean output
 - To get angle in radians `Math.atan2(xAxis, -yAxis)`
@@ -19,11 +17,11 @@
 #### Use Encoders
 - To import `import edu.wpi.first.wpilibj.Encoder`
 - To initialize `Encoder sampleEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);`
-- To set max period (secs) without clicks before it is considered at rest `sampleEncoder.setMaxPeriod(.1);`
-- Minimum rate (rotation/time) before device is stopped `sampleEncoder.setMinRate(10);`
-- How much distance is traveled every encoder pulse `sampleEncoder.setDistancePerPulse(5);`
-- Reverse the direction encoder counts `sampleEncoder.setReverseDirection(true);`
-- How many samples to take (1-127) when determining the period`sampleEncoder.setSamplesToAverage(7);`
+	- To set max period (secs) without clicks before it is considered at rest `sampleEncoder.setMaxPeriod(.1);`
+	- Minimum rate (rotation/time) before device is stopped `sampleEncoder.setMinRate(10);`
+	- How much distance is traveled every encoder pulse `sampleEncoder.setDistancePerPulse(5);`
+	- Reverse the direction encoder counts `sampleEncoder.setReverseDirection(true);`
+	- How many samples to take (1-127) when determining the period`sampleEncoder.setSamplesToAverage(7);`
 #### Use accelerometer
 - 
 ## Examples
