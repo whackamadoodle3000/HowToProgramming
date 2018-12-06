@@ -9,10 +9,11 @@
 #### Use joysticks
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
-- To get axis values `Joy.getRawAxis(0);` with value between -1 and 1
-- To get button values `Joy.getRawButton(0);` with boolean output
-- To get angle in radians `Math.atan2(xAxis, -yAxis)`
-- To get magnitude `Math.sqrt(xAxis*xAxis + yAxis*yAxis);`
+- To use
+	- To get axis values `Joy.getRawAxis(0);` with value between -1 and 1
+	- To get button values `Joy.getRawButton(0);` with boolean output
+	- To get angle in radians `Math.atan2(xAxis, -yAxis)`
+	- To get magnitude `Math.sqrt(xAxis*xAxis + yAxis*yAxis);`
 
 #### Use Encoders
 - To import `import edu.wpi.first.wpilibj.Encoder`
@@ -22,6 +23,13 @@
 	- How much distance is traveled every encoder pulse `sampleEncoder.setDistancePerPulse(5);`
 	- Reverse the direction encoder counts `sampleEncoder.setReverseDirection(true);`
 	- How many samples to take (1-127) when determining the period`sampleEncoder.setSamplesToAverage(7);`
+- To use
+	- To get count of clicks `int count = sampleEncoder.get();`
+	- To get distance `double distance = sampleEncoder.getDistance();`
+	- To get period between clicks `double period = sampleEncoder.getPeriod();`
+	- To get speed `double rate = sampleEncoder.getRate();`
+	- To get current direction `boolean direction = sampleEncoder.getDirection();`
+	- To see if the encoder is stopped `boolean stopped = sampleEncoder.getStopped();`
 #### Use accelerometer
 - 
 ## Examples
