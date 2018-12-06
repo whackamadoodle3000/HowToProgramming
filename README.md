@@ -5,7 +5,9 @@
 
 - To import `import com.ctre.phoenix.motorcontrol.can.*;`
 - To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
+- To initialize automatic deadband `Motor.enableDeadbandElimination(true);`
 - To use `Motor.set(value)` with value between -1 and 1
+
 #### Use Joysticks
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
