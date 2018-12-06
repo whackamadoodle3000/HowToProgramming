@@ -7,6 +7,8 @@
 - To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
 - To use `Motor.set(value)` with value between -1 and 1
 
+## Examples
+
 #### Make Motor Spin with Joystick Input　
 
 ```java
