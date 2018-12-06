@@ -6,7 +6,7 @@
 - To import `import com.ctre.phoenix.motorcontrol.can.*;`
 - To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
 - To use `Motor.set(value)` with value between -1 and 1
-#### Use joysticks
+#### Use Joysticks
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
 - To use
@@ -30,7 +30,7 @@
 	- To get speed `double rate = sampleEncoder.getRate();`
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped `boolean stopped = sampleEncoder.getStopped();`
-#### Use accelerometer
+#### Use the Built-in Accelerometer
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
 - To use
