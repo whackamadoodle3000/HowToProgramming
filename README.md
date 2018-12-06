@@ -31,7 +31,12 @@
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped `boolean stopped = sampleEncoder.getStopped();`
 #### Use accelerometer
-- 
+- To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
+- To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
+- To use
+	- Get x `accel.getX()`
+	- Get y `accel.getY()`
+	- Get z `accel.getZ()`
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
