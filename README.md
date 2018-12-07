@@ -39,6 +39,10 @@
 	- Get x `accel.getX()`
 	- Get y `accel.getY()`
 	- Get z `accel.getZ()`
+#### Use Solenoids
+
+#### Use a Compressor
+- 
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
