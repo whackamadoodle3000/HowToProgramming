@@ -58,9 +58,17 @@
 #### Use a Compressor
 - To import `import edu.wpi.first.wpilibj.Compressor;`
 - To initialize `Compressor c = new Compressor(0);`
-- To use
+- To control
 	- To turn on closed loop control (goes up until maximum PSI) `c.start();`
 	- To turn off closed loop control `c.stop();`
+- Getting information
+	- To get if the pressure is low in boolean `c.getPressureSwitchValue()`
+	- To get the current being consumed in amps in double `c.getCompressorCurrent()`
+	- To check if closed loop control is on `c.getClosedLoopControl()`
+- Getting fault/error information
+	- Check if compressor is disabled because current is too high `c.getCompressorCurrentTooHighFault()`
+	- Check if the compressor is disabled because output is shorted `c.getCompressorShortedFault()`
+	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
