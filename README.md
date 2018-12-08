@@ -48,7 +48,7 @@
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
 	- To get solenoid state in boolean `solenoid.get()`
-#### Use Double Solenoid - the ones that switch output pressure between 2 places
+#### Use a Double Solenoid - the ones that switch output pressure between 2 places
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
 - To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
 - To use
@@ -69,6 +69,10 @@
 	- Check if compressor is disabled because current is too high `c.getCompressorCurrentTooHighFault()`
 	- Check if the compressor is disabled because output is shorted `c.getCompressorShortedFault()`
 	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`
+#### Use a Limit Switch
+- To import `import edu.wpi.first.wpilibj.DigitalInput;`
+- To initialize `DigitalInput limitSwitch = new DigitalInput(1);`
+- To get value `limitSwitch.get()` (boolean)
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
