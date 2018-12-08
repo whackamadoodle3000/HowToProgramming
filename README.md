@@ -41,6 +41,49 @@
 	- Get x `accel.getX()`
 	- Get y `accel.getY()`
 	- Get z `accel.getZ()`
+
+#### Use the Kauai Labs NavX
+- To import 
+	- `import com.kauailabs.navx.frc.AHRS;`
+	- `import edu.wpi.first.wpilibj.SPI;` or I2C
+- To initialize
+	- If mounted on RoboRIO `AHRS ahrs = new AHRS(SPI.Port.kMXP);`
+	- If mounted elsewhere `AHRS ahrs = new AHRS(I2C.Port.kMXP);`
+- To use
+	- Orientation Data
+		- To get angle `ahrs.getAngle()`
+		- To get yaw `ahrs.getYaw()` (-180 to 180 degrees)
+		- To get pitch `ahrs.getPitch()` (-180 to 180 degrees)
+		- To get roll `ahrs.getRoll()`
+		- To get compass data `ahrs.getCompassHeading()` (0 to 360)
+	- Velocity Data in Meters/Sec
+		- Velocity in x direction `ahrs.getVelocityX()`
+		- Velocity in y direction `ahrs.getVelocityY()`
+		- Velocity in z direction `ahrs.getVelocityZ()`
+		- Rate of yaw (turning) `ahrs.getRate()`
+	- Acceleration Data in G
+		- Acceleration in x direction `ahrs.getWorldLinearAccelX()`
+		- Acceleration in y direction `ahrs.getWorldLinearAccelY()`
+		- Acceleration in z direction `ahrs.getWorldLinearAccelZ()`
+	- Distance/Displacement Data in meters
+		- Displacement x `ahrs.getDisplacementX()`
+		- Displacement y `ahrs.getDisplacementY()`
+		- Displacement z `ahrs.getDisplacementZ()`
+	- Pressure and Temperature data
+		- Barometric Pressure in millibars `ahrs.getBarometricPressure()`
+		- Temperature in c `ahrs.getTempC()`
+	- Boolean Motion Data
+		- To see if it is rotating `ahrs.isRotating()`
+		- To see if it is moving `ahrs.isMoving()`
+	- Reset stuff
+		- To reset measurements for the yaw gyro `ahrs.reset()`
+		- To zero yaw gyro `ahrs.zeroYaw()` (tell it what forward mean)
+		- To reset displatement distances `ahrs.resetDisplacement()`
+	- Board Info
+		- To get update rate `ahrs.getActualUpdateRate()`
+		- Check if it is connected `ahrs.isConnected()`
+	- More info: https://www.kauailabs.com/public_files/navx-mxp/apidocs/java/com/kauailabs/navx/frc/AHRS.html
+	
 #### Use Solenoids
 - To import `import edu.wpi.first.wpilibj.Solenoid;`
 - To initialize `Solenoid solenoid = new Solenoid(1)`
