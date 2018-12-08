@@ -2,11 +2,12 @@
 
 
 #### Use Motors
-
-- To import `import com.ctre.phoenix.motorcontrol.can.*;`
-- To import control mode `import com.ctre.phoenix.motorcontrol.ControlMode;`
-- To initialize `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
-- To initialize automatic deadband `Motor.enableDeadbandElimination(true);`
+- To import
+	- To import TalonSRX `import com.ctre.phoenix.motorcontrol.can.*;`
+	- To import control mode `import com.ctre.phoenix.motorcontrol.ControlMode;`
+- To initialize
+	- To initialize motor `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
+	- To initialize automatic deadband `Motor.enableDeadbandElimination(true);`
 - To use `Motor.set(ControlMode.PercentOutput, value)` with value between -1 and 1
 
 #### Use Joysticks
@@ -32,7 +33,7 @@
 	- To get period between clicks `double period = sampleEncoder.getPeriod();`
 	- To get speed `double rate = sampleEncoder.getRate();`
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
-	- To see if the encoder is stopped `boolean stopped = sampleEncoder.getStopped();`
+	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
 #### Use the Built-in Accelerometer
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
@@ -41,9 +42,25 @@
 	- Get y `accel.getY()`
 	- Get z `accel.getZ()`
 #### Use Solenoids
-
+- To import `import edu.wpi.first.wpilibj.Solenoid;`
+- To initialize `Solenoid solenoid = new Solenoid(1)`
+- To use 
+	- To turn on `solenoid.set(true)`
+	- To turn off `solenoid.set(false)`
+	- To get solenoid state in boolean `solenoid.get()`
+### Use Double Solenoid - the ones that switch output pressure between 2 places
+- To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
+- To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
+- To use
+	- To block all pressure `doubleSolenoid.set(DoubleSolenoid.Value.kOff);`
+	- To put pressure in forward channel `doubleSolenoid.set(DoubleSolenoid.Value.kForward);`
+	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`
 #### Use a Compressor
-- 
+- To import `import edu.wpi.first.wpilibj.Compressor;`
+- To initialize `Compressor c = new Compressor(0);`
+- To use
+	- To turn on closed loop control (goes up until maximum PSI) `c.start();`
+	- To turn off closed loop control `c.stop();`
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
