@@ -48,7 +48,7 @@
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
 	- To get solenoid state in boolean `solenoid.get()`
-### Use Double Solenoid - the ones that switch output pressure between 2 places
+#### Use Double Solenoid - the ones that switch output pressure between 2 places
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
 - To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
 - To use
