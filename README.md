@@ -34,6 +34,7 @@
 	- To get speed `double rate = sampleEncoder.getRate();`
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
+- More info: https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599717-encoders-measuring-rotation-of-a-wheel-or-other-shaft
 #### Use the Built-in Accelerometer
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
@@ -112,10 +113,13 @@
 	- Check if compressor is disabled because current is too high `c.getCompressorCurrentTooHighFault()`
 	- Check if the compressor is disabled because output is shorted `c.getCompressorShortedFault()`
 	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`
+- More info: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Compressor.html#Compressor--
+
 #### Use a Limit Switch
 - To import `import edu.wpi.first.wpilibj.DigitalInput;`
 - To initialize `DigitalInput limitSwitch = new DigitalInput(1);`
 - To get value `limitSwitch.get()` (boolean)
+
 ## Examples
 
 #### Make Motor Spin with Joystick Input　
