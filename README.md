@@ -106,8 +106,9 @@
 - To import `import edu.wpi.first.wpilibj.Compressor;`
 - To initialize `Compressor c = new Compressor(0);`
 - To control
-	- To turn on closed loop control (goes up until maximum PSI) `c.start();`
-	- To turn off closed loop control `c.stop();`
+	- To toggle closed loop control (goes up until maximum PSI) `c.setClosedLoopControl(boolean);`
+	- To turn on `c.start();`
+	- To turn off `c.stop();`
 - Getting information
 	- To get if the pressure is low in boolean `c.getPressureSwitchValue()`
 	- To get the current being consumed in amps in double `c.getCompressorCurrent()`
