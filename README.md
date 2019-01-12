@@ -1,25 +1,28 @@
 # How to Programming
 
 
-#### Use Motors
+### Use Motors
 - To import
 	- To import TalonSRX `import com.ctre.phoenix.motorcontrol.can.*;`
-	- To import control mode `import com.ctre.phoenix.motorcontrol.ControlMode;`
+	- To import control modes `import com.ctre.phoenix.motorcontrol.ControlMode;`
 - To initialize
 	- To initialize motor `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
 	- To initialize automatic deadband `Motor.enableDeadbandElimination(true);`
-- To use `Motor.set(ControlMode.PercentOutput, value)` with value between -1 and 1
+- To use (with various control modes)
+	- Set motor absolute power `Motor.set(ControlMode.PercentOutput, value);` with value as a double between -1 and 1
+	- Set motor to follow another `Motor.set(ControlMode.Follower, value);` with value as the id of the other talon
 
-#### Use Joysticks
+### Use Joysticks
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
 - To use
 	- To get axis values `Joy.getRawAxis(0);` with value between -1 and 1
 	- To get button values `Joy.getRawButton(0);` with boolean output
 	- To get angle in radians `Math.atan2(xAxis, -yAxis)`
+		- To get angle in degrees `Math.atan2(xAxis, -yAxis) * 180 / Math.PI`
 	- To get magnitude `Math.sqrt(xAxis*xAxis + yAxis*yAxis);`
 
-#### Use Encoders
+### Use Encoders
 - To import `import edu.wpi.first.wpilibj.Encoder`
 - To initialize `Encoder sampleEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);`
 	- To set max period (secs) without clicks before it is considered at rest `sampleEncoder.setMaxPeriod(.1);`
@@ -35,7 +38,7 @@
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
 - More info: https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599717-encoders-measuring-rotation-of-a-wheel-or-other-shaft
-#### Use the Built-in Accelerometer
+### Use the Built-in Accelerometer
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
 - To use
@@ -43,7 +46,7 @@
 	- Get y `accel.getY()`
 	- Get z `accel.getZ()`
 
-#### Use the Kauai Labs NavX
+### Use the Kauai Labs NavX
 - To import 
 	- `import com.kauailabs.navx.frc.AHRS;`
 	- `import edu.wpi.first.wpilibj.SPI;` or I2C
@@ -85,21 +88,21 @@
 		- Check if it is connected `ahrs.isConnected()`
 	- More info: https://www.kauailabs.com/public_files/navx-mxp/apidocs/java/com/kauailabs/navx/frc/AHRS.html
 	
-#### Use Solenoids
+### Use Solenoids
 - To import `import edu.wpi.first.wpilibj.Solenoid;`
 - To initialize `Solenoid solenoid = new Solenoid(1)`
 - To use 
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
 	- To get solenoid state in boolean `solenoid.get()`
-#### Use a Double Solenoid - the ones that switch output pressure between 2 places
+### Use a Double Solenoid - the ones that switch output pressure between 2 places
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
 - To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
 - To use
 	- To block all pressure `doubleSolenoid.set(DoubleSolenoid.Value.kOff);`
 	- To put pressure in forward channel `doubleSolenoid.set(DoubleSolenoid.Value.kForward);`
 	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`
-#### Use a Compressor
+### Use a Compressor
 - To import `import edu.wpi.first.wpilibj.Compressor;`
 - To initialize `Compressor c = new Compressor(0);`
 - To control
@@ -115,7 +118,7 @@
 	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`
 - More info: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Compressor.html#Compressor--
 
-#### Use a Limit Switch
+### Use a Limit Switch
 - To import `import edu.wpi.first.wpilibj.DigitalInput;`
 - To initialize `DigitalInput limitSwitch = new DigitalInput(1);`
 - To get value `limitSwitch.get()` (boolean)
