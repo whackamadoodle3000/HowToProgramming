@@ -1,5 +1,23 @@
 # How to Programming
 
+## Contents
+[Guides](#guides)  
+- [Motors](#use-motors)  
+- [Joysticks](#use-joysticks)  
+- [Encoders](#use-encoders)  
+- [Built-in Accelerometer](#use-the-built-in-accelerometer)  
+- [NavX](#use-the-kauai-labs-navx)
+- [Solenoids](#use-solenoids)
+- [Double Solenoids](#use-a-double-solenoid)
+- [Compressors](#use-a-compressor)
+- [Limit Switches](#use-a-limit-switch)  
+
+[Examples](#examples)  
+- [Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
+- [Arcade Drive](#arcade-drive)  
+- [Tank Drive](#tank-drive) 
+
+## Guides
 
 ### Use Motors
 - To import
@@ -95,7 +113,8 @@
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
 	- To get solenoid state in boolean `solenoid.get()`
-### Use a Double Solenoid - the ones that switch output pressure between 2 places
+### Use a Double Solenoid 
+#### (the ones that switch output pressure between 2 places)
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
 - To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
 - To use
