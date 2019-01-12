@@ -126,7 +126,7 @@
 
 ## Examples
 
-#### Make Motor Spin with Joystick Input　
+#### Make Motor Spin based on Joystick Input　
 
 ```java
 package org.usfirst.frc.team972.robot;
@@ -136,18 +136,19 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class Robot extends IterativeRobot {
-	WPI_TalonSRX Motor = new WPI_TalonSRX(6); //initialize motor
-	Joystick Joy = new Joystick(0); // initiallize joystick (to find number, check driver station)
+	WPI_TalonSRX motor = new WPI_TalonSRX(6); //initialize motor
+	Joystick joy = new Joystick(0); //initialize joystick (to find number, check driver station)
+	double powerMultiplier = 0.7; //scales down motor power
 
 	public void robotInit() {
 		//This function is run when the robot is first started up
 	}
 
 	public void teleopPeriodic() {
-		//This function is called periodically during operator control
-	    double joystickValue = Joy.getRawAxis(1); //find raw axis in driver station
-		System.out.println("Joy:" + joystickValue);
-        Motor.set(joystickValue*0.7); //scale down by 0.7
+		//This function is called periodically during teleoperated control
+		double joystickValue = joy.getRawAxis(1); //find axis number in driver station
+		System.out.println("Joy: " + joystickValue);
+		Motor.set(joystickValue*powerMultiplier); //scale down by powerMultiplier
 	}
 }
 ```
