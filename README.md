@@ -16,6 +16,7 @@
 - [Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
 - [Arcade Drive](#arcade-drive)  
 - [Tank Drive](#tank-drive) 
+- [Toggling Double Solenoids](#toggling-double-solenoids) 
 
 ## Guides
 
@@ -123,7 +124,7 @@
 	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`
 ### Use a Compressor
 - To import `import edu.wpi.first.wpilibj.Compressor;`
-- To initialize `Compressor c = new Compressor(0);`
+- To initialize `Compressor c = new Compressor(40);`
 - To control
 	- To toggle closed loop control (goes up until maximum PSI) `c.setClosedLoopControl(boolean);`
 	- To turn on `c.start();`
@@ -324,3 +325,41 @@ public class Robot extends IterativeRobot {
 }
 ```
 
+#### Toggling Double Solenoids  
+
+```java
+package org.usfirst.frc.team972.robot;
+
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.*;
+
+public class Robot extends IterativeRobot {
+
+	Compressor com = new Compressor(40);
+	DoubleSolenoid sol = new Double Solenoid(1, 2);
+
+	Joystick joy = new Joystick(1);
+
+	//This function is run when the robot is first started up and should be used for any initialization code.
+	
+	public void robotInit() {
+		//set up compressors
+		com.setClosedLoopControl(true);
+		com.start();
+	}
+
+	
+	public void teleopPeriodic() {
+		// Called when the button was released since last check
+		if(joystick.getRawButtonReleased(0)) {
+			if(frontSolenoid.get().equals(kForward)) {
+				frontSolenoid.set(kReverse);
+			} else if(frontSolenoid.get().equals(kReverse)) {
+				frontSolenoid.set(kForward);
+			}
+			
+		}
+	}
+}
+```
