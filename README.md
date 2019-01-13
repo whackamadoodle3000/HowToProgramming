@@ -74,7 +74,7 @@
 	- If mounted elsewhere `AHRS ahrs = new AHRS(I2C.Port.kMXP);`
 - To use
 	- Orientation Data
-		- To get angle `ahrs.getAngle()`
+		- To get heading `ahrs.getAngle()`
 		- To get yaw `ahrs.getYaw()` (-180 to 180 degrees)
 		- To get pitch `ahrs.getPitch()` (-180 to 180 degrees)
 		- To get roll `ahrs.getRoll()`
@@ -84,7 +84,7 @@
 		- Velocity in y direction `ahrs.getVelocityY()`
 		- Velocity in z direction `ahrs.getVelocityZ()`
 		- Rate of yaw (turning) `ahrs.getRate()`
-	- Acceleration Data in G
+	- Acceleration Data in g-force
 		- Acceleration in x direction `ahrs.getWorldLinearAccelX()`
 		- Acceleration in y direction `ahrs.getWorldLinearAccelY()`
 		- Acceleration in z direction `ahrs.getWorldLinearAccelZ()`
@@ -94,11 +94,11 @@
 		- Displacement z `ahrs.getDisplacementZ()`
 	- Pressure and Temperature data
 		- Barometric Pressure in millibars `ahrs.getBarometricPressure()`
-		- Temperature in c `ahrs.getTempC()`
+		- Temperature in Celsius `ahrs.getTempC()`
 	- Boolean Motion Data
 		- To see if it is rotating `ahrs.isRotating()`
 		- To see if it is moving `ahrs.isMoving()`
-	- Reset stuff
+	- Reset
 		- To reset measurements for the yaw gyro `ahrs.reset()`
 		- To zero yaw gyro `ahrs.zeroYaw()` (tell it what forward mean)
 		- To reset displatement distances `ahrs.resetDisplacement()`
@@ -114,6 +114,7 @@
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
 	- To get solenoid state in boolean `solenoid.get()`
+	
 ### Use a Double Solenoid 
 #### (the ones that switch output pressure between 2 places)
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
