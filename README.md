@@ -325,7 +325,35 @@ public class Robot extends IterativeRobot {
 	}
 }
 ```
+#### PID Example Snippet
 
+```java
+//At top:
+import com.ctre.phoenix.motorcontrol.SensorCollection;
+
+double proportionFactor = -1;;
+double integralFactor = -1;
+double derivativeFactor = -1;
+
+double current = SensorCollection.getQuadraturePosition() * distancePerClick;
+double distancePerClick = 1;
+double last = 0;
+double integral = 0;
+
+Repeated loop (like slow or fast periodic) {
+	double desired = <input, like joystick or set position>;
+	last = current;
+	current = SensorCollection.getQuadraturePosition() * distancePerClick;
+	if (desired == current){
+		integral = 0;
+	}
+	else {
+		integral = integral + current - desired;
+	}
+	return proportion factor * (desired - current) + integral factor * (integral) + derivative factor * (current - last);
+}
+
+```
 #### Toggling Double Solenoids  
 
 ```java
