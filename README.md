@@ -57,6 +57,12 @@
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
 - More info: https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599717-encoders-measuring-rotation-of-a-wheel-or-other-shaft
+### Use Talon Encoders
+- To import `import com.ctre.phoenix.motorcontrol.FeedbackDevice;`
+- To initialize `talon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 100);`
+- To use 
+	- `talon.getSensorCollection().getQuadraturePosition();`
+	- `talon.getSensorCollection().getQuadratureVelocity();`
 ### Use the Built-in Accelerometer
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
@@ -329,13 +335,13 @@ public class Robot extends IterativeRobot {
 
 ```java
 //At top:
-import com.ctre.phoenix.motorcontrol.SensorCollection;
+
 
 double proportionFactor = -1;;
 double integralFactor = -1;
 double derivativeFactor = -1;
 
-double current = SensorCollection.getQuadraturePosition() * distancePerClick;
+double current = getencodervalue * distancePerClick;
 double distancePerClick = 1;
 double last = 0;
 double integral = 0;
@@ -343,7 +349,7 @@ double integral = 0;
 Repeated loop (like slow or fast periodic) {
 	double desired = <input, like joystick or set position>;
 	last = current;
-	current = SensorCollection.getQuadraturePosition() * distancePerClick;
+	current = getencodervalue * distancePerClick;
 	if (desired == current){
 		integral = 0;
 	}
