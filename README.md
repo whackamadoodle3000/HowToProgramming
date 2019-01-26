@@ -356,7 +356,7 @@ Repeated loop (like slow or fast periodic) {
 	else {
 		integral = integral + current - desired;
 	}
-	return proportion factor * (desired - current) + integral factor * (integral) + derivative factor * (current - last);
+	return proportionFactor * (desired - current) + integralFactor * (integral) + derivativeFactor * (current - last);
 }
 
 ```
