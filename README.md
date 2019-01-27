@@ -4,10 +4,10 @@
 [Guides](#guides)  
 - [Motors](#use-motors)  
 - [Joysticks](#use-joysticks)  
-- [Encoders](#use-encoders)  
+- [Encoders](#use-external-encoders)  
 - [Built-in Accelerometer](#use-the-built-in-accelerometer)  
 - [NavX](#use-the-kauai-labs-navx)
-- [Solenoids](#use-solenoids)
+- [Solenoids](#use-single-acting-solenoids)
 - [Double Solenoids](#use-a-double-solenoid)
 - [Compressors](#use-a-compressor)
 - [Limit Switches](#use-a-limit-switch)  
@@ -21,6 +21,7 @@
 ## Guides
 
 ### Use Motors
+**Motors are one of the most common actuators and provide rotational motion. When given power, the motor will spin with speed proportional to the voltage and torque proportional to the current. They are controlled with a talon.**
 - To import
 	- To import TalonSRX `import com.ctre.phoenix.motorcontrol.can.*;`
 	- To import control modes `import com.ctre.phoenix.motorcontrol.ControlMode;`
@@ -32,6 +33,7 @@
 	- Set motor to follow another `Motor.set(ControlMode.Follower, value);` with value as the id of the other talon
 
 ### Use Joysticks
+**Joysticks are (misleadingly) an umbrella term for all user input devices, including gamepads, joysticks, etc. Joystick objects can receive joystick and button input.**
 - To import `import edu.wpi.first.wpilibj.Joystick;`
 - To initialize `Joystick Joy = new Joystick(0);`
 - To use
@@ -41,7 +43,8 @@
 		- To get angle in degrees `Math.atan2(xAxis, -yAxis) * 180 / Math.PI`
 	- To get magnitude `Math.sqrt(xAxis*xAxis + yAxis*yAxis);`
 
-### Use Encoders
+### Use External Encoders
+**Encoders are used for measuring rotation. This is done through counting the number of "clicks", which increments or decrements with every slight rotation.**
 - To import `import edu.wpi.first.wpilibj.Encoder`
 - To initialize `Encoder sampleEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);`
 	- To set max period (secs) without clicks before it is considered at rest `sampleEncoder.setMaxPeriod(.1);`
@@ -58,20 +61,23 @@
 	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
 - More info: https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599717-encoders-measuring-rotation-of-a-wheel-or-other-shaft
 ### Use Talon Encoders
+**These encoders function the same as [external encoders](#use-encoders), but are connected to the talon's encoder port and thus can be directly accessed from the talon object.**
 - To import `import com.ctre.phoenix.motorcontrol.FeedbackDevice;`
 - To initialize `talon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 100);`
 - To use 
 	- `talon.getSensorCollection().getQuadraturePosition();`
 	- `talon.getSensorCollection().getQuadratureVelocity();`
 ### Use the Built-in Accelerometer
+**This is the RoboRio's built-in accelerometer. It allows you to get the acceleration in the x, y, and z directions.**
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
 - To initialize `BuiltInAccelerometer accel = new BuiltInAccelerometer();`
 - To use
-	- Get x `accel.getX()`
-	- Get y `accel.getY()`
-	- Get z `accel.getZ()`
+	- Get x acceleration `accel.getX()`
+	- Get y acceleration `accel.getY()`
+	- Get z acceleration`accel.getZ()`
 
 ### Use the Kauai Labs NavX
+**The NavX gives a variety of information on the robot state, including orientation, velocity, acceleration, position, and more.**
 - To import 
 	- `import com.kauailabs.navx.frc.AHRS;`
 	- `import edu.wpi.first.wpilibj.SPI;` or I2C
@@ -113,7 +119,8 @@
 		- Check if it is connected `ahrs.isConnected()`
 	- More info: https://www.kauailabs.com/public_files/navx-mxp/apidocs/java/com/kauailabs/navx/frc/AHRS.html
 	
-### Use Solenoids
+### Use Single Acting Solenoids
+**Solenoids are the most often used actuator for linear motion. Single acting Solenoids extend by increasing the air pressure inside a piston. [Double Solenoids](#use-a-double-solenoid) are recommended, as their have two channels, allowing them to more easily switch between extended and retracted position.**
 - To import `import edu.wpi.first.wpilibj.Solenoid;`
 - To initialize `Solenoid solenoid = new Solenoid(1)`
 - To use 
@@ -122,7 +129,7 @@
 	- To get solenoid state in boolean `solenoid.get()`
 	
 ### Use a Double Solenoid 
-#### (the ones that switch output pressure between 2 places)
+**These are similar to single acting solenoids, but have a second channel allowing them to revert to their original position without the need of an external force.**
 - To import `import edu.wpi.first.wpilibj.DoubleSolenoid;`
 - To initialize `DoubleSolenoid doubleSolenoid = new DoubleSolenoid(forwardchannel, reversechannel);`
 - To use
@@ -130,6 +137,7 @@
 	- To put pressure in forward channel `doubleSolenoid.set(DoubleSolenoid.Value.kForward);`
 	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`
 ### Use a Compressor
+**Compressors are used for compressing air. They are need for any pneumatics, as they need air at a high pressure to function.**
 - To import `import edu.wpi.first.wpilibj.Compressor;`
 - To initialize `Compressor c = new Compressor(40);`
 - To control
@@ -147,6 +155,7 @@
 - More info: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Compressor.html#Compressor--
 
 ### Use a Limit Switch
+**Limit switches are devices that mechanically prevent an actuator from extending a certain predetermined position.**
 - To import `import edu.wpi.first.wpilibj.DigitalInput;`
 - To initialize `DigitalInput limitSwitch = new DigitalInput(1);`
 - To get value `limitSwitch.get()` (boolean)
@@ -337,26 +346,28 @@ public class Robot extends IterativeRobot {
 //At top:
 
 
-double proportionFactor = -1;;
-double integralFactor = -1;
-double derivativeFactor = -1;
+double proportionFactor = 0.2; //These values should be tuned to be the most efficient.
+double integralFactor = 0.2;
+double derivativeFactor = 0.2;
+double marginOfError = 0.01;
 
-double current = getencodervalue * distancePerClick;
-double distancePerClick = 1;
-double last = 0;
+double actual = 1; //Change based on situation
+double desired = 10;
+
+double priorActual = actual;
 double integral = 0;
+double error = desired - actual;
 
 Repeated loop (like slow or fast periodic) {
-	double desired = <input, like joystick or set position>;
-	last = current;
-	current = getencodervalue * distancePerClick;
-	if (desired == current){
-		integral = 0;
-	}
-	else {
+	priorActual = actual;
+	actual = <get sensor data>;
+	error = desired - actual;
+	if (Math.abs(desired-actual) < marginOfError){
+		<End of PID, Position Achieved>
+	} else {
 		integral = integral + current - desired;
 	}
-	return proportionFactor * (desired - current) + integralFactor * (integral) + derivativeFactor * (current - last);
+	return proportionFactor*error + integralFactor*integral + derivativeFactor*(actual-priorActual);
 }
 
 ```
