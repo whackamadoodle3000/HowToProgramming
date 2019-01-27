@@ -1,7 +1,7 @@
 <h1> How to Programming </h1>
 
 **Made for FRC Team 972: Iron Claw, in Los Gatos High School, CA.**  
-**Authored by** [**@whackamadoodle3000**](https://github.com/whackamadoodle3000) [**, @me1234q**](https://github.com/me1234q) 
+**Authored by** [**@whackamadoodle3000**](https://github.com/whackamadoodle3000)__,__ [**@me1234q**](https://github.com/me1234q) 
 
 ## Contents
 [Guides](#guides)   
