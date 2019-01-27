@@ -1,22 +1,23 @@
 # How to Programming
 
 ## Contents
-[Guides](#guides)  
-- [Motors](#use-motors)  
-- [Joysticks](#use-joysticks)  
-- [Encoders](#use-external-encoders)  
-- [Built-in Accelerometer](#use-the-built-in-accelerometer)  
-- [NavX](#use-the-kauai-labs-navx)
-- [Solenoids](#use-single-acting-solenoids)
-- [Double Solenoids](#use-a-double-solenoid)
-- [Compressors](#use-a-compressor)
-- [Limit Switches](#use-a-limit-switch)  
+[Guides](#guides)   
+[&emsp; Motors](#use-motors)  
+[&emsp; Joysticks](#use-joysticks)  
+[&emsp; Encoders](#use-external-encoders)  
+[&emsp; Built-in Accelerometer](#use-the-built-in-accelerometer)  
+[&emsp; NavX](#use-the-kauai-labs-navx)  
+[&emsp; Solenoids](#use-single-acting-solenoids)  
+[&emsp; Double Solenoids](#use-a-double-solenoid)  
+[&emsp; Compressors](#use-a-compressor)  
+[&emsp; Limit Switches](#use-a-limit-switch)  
 
 [Examples](#examples)  
-- [Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
-- [Arcade Drive](#arcade-drive)  
-- [Tank Drive](#tank-drive) 
-- [Toggling Double Solenoids](#toggling-double-solenoids) 
+[&emsp; Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
+[&emsp; Arcade Drive](#arcade-drive)  
+[&emsp; Tank Drive](#tank-drive)  
+[&emsp; PID Example Snippet](#pid-example-snippet)  
+[&emsp; Toggling Double Solenoids](#toggling-double-solenoids)  
 
 ## Guides
 
