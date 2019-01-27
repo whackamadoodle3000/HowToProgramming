@@ -5,22 +5,22 @@
 
 ## Contents
 [Guides](#guides)   
-[&emsp; Motors](#use-motors)  
-[&emsp; Joysticks](#use-joysticks)  
-[&emsp; Encoders](#use-external-encoders)  
-[&emsp; Built-in Accelerometer](#use-the-built-in-accelerometer)  
-[&emsp; NavX](#use-the-kauai-labs-navx)  
-[&emsp; Solenoids](#use-single-acting-solenoids)  
-[&emsp; Double Solenoids](#use-a-double-solenoid)  
-[&emsp; Compressors](#use-a-compressor)  
-[&emsp; Limit Switches](#use-a-limit-switch)  
+&emsp; [Motors](#use-motors)  
+&emsp; [Joysticks](#use-joysticks)  
+&emsp; [Encoders](#use-external-encoders)  
+&emsp; [Built-in Accelerometer](#use-the-built-in-accelerometer)  
+&emsp; [NavX](#use-the-kauai-labs-navx)  
+&emsp; [Solenoids](#use-single-acting-solenoids)  
+&emsp; [Double Solenoids](#use-a-double-solenoid)  
+&emsp; [Compressors](#use-a-compressor)  
+&emsp; [Limit Switches](#use-a-limit-switch)  
 
 [Examples](#examples)  
-[&emsp; Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
-[&emsp; Arcade Drive](#arcade-drive)  
-[&emsp; Tank Drive](#tank-drive)  
-[&emsp; PID Example Snippet](#pid-example-snippet)  
-[&emsp; Toggling Double Solenoids](#toggling-double-solenoids)  
+&emsp; [Make Motor Spin Based on Joystick Input](#make-motor-spin-based-on-joystick-input)  
+&emsp; [Arcade Drive](#arcade-drive)  
+&emsp; [Tank Drive](#tank-drive)  
+&emsp; [PID Example Snippet](#pid-example-snippet)  
+&emsp; [Toggling Double Solenoids](#toggling-double-solenoids)  
 
 ## Guides
 
@@ -33,7 +33,7 @@
 	- To initialize motor `WPI_TalonSRX Motor = new WPI_TalonSRX(6);`
 	- To initialize automatic deadband `Motor.enableDeadbandElimination(true);`
 - To use (with various control modes)
-	- Set motor absolute power `Motor.set(ControlMode.PercentOutput, value);` with value as a double between -1 and 1
+	- Set motor absolute power `Motor.set(ControlMode.PercentOutput, value);` with value as double between -1 and 1
 	- Set motor to follow another `Motor.set(ControlMode.Follower, value);` with value as the id of the other talon
 
 ### Use Joysticks
@@ -46,6 +46,7 @@
 	- To get angle in radians `Math.atan2(xAxis, -yAxis)`
 		- To get angle in degrees `Math.atan2(xAxis, -yAxis) * 180 / Math.PI`
 	- To get magnitude `Math.sqrt(xAxis*xAxis + yAxis*yAxis);`
+- Documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/Joystick.html
 
 ### Use External Encoders
 **Encoders are used for measuring rotation. This is done through counting the number of "clicks", which increments or decrements with every slight rotation.**
@@ -63,6 +64,7 @@
 	- To get speed `double rate = sampleEncoder.getRate();`
 	- To get current direction `boolean direction = sampleEncoder.getDirection();`
 	- To see if the encoder is stopped turning `boolean stopped = sampleEncoder.getStopped();`
+- Documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/Encoder.html
 - More info: https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599717-encoders-measuring-rotation-of-a-wheel-or-other-shaft
 ### Use Talon Encoders
 **These encoders function the same as [external encoders](#use-encoders), but are connected to the talon's encoder port and thus can be directly accessed from the talon object.**
@@ -79,6 +81,7 @@
 	- Get x acceleration `accel.getX()`
 	- Get y acceleration `accel.getY()`
 	- Get z acceleration`accel.getZ()`
+- Documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/BuiltInAccelerometer.html
 
 ### Use the Kauai Labs NavX
 **The NavX gives a variety of information on the robot state, including orientation, velocity, acceleration, position, and more.**
@@ -121,7 +124,7 @@
 	- Board Info
 		- To get update rate `ahrs.getActualUpdateRate()`
 		- Check if it is connected `ahrs.isConnected()`
-	- More info: https://www.kauailabs.com/public_files/navx-mxp/apidocs/java/com/kauailabs/navx/frc/AHRS.html
+- Documentation: https://www.kauailabs.com/public_files/navx-mxp/apidocs/java/com/kauailabs/navx/frc/AHRS.html
 	
 ### Use Single Acting Solenoids
 **Solenoids are the most often used actuator for linear motion. Single acting Solenoids extend by increasing the air pressure inside a piston. [Double Solenoids](#use-a-double-solenoid) are recommended, as their have two channels, allowing them to more easily switch between extended and retracted position.**
@@ -130,7 +133,8 @@
 - To use 
 	- To turn on `solenoid.set(true)`
 	- To turn off `solenoid.set(false)`
-	- To get solenoid state in boolean `solenoid.get()`
+	- To get solenoid state in boolean `solenoid.get()`  
+- Documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/Solenoid.html
 	
 ### Use a Double Solenoid 
 **These are similar to single acting solenoids, but have a second channel allowing them to revert to their original position without the need of an external force.**
@@ -139,7 +143,8 @@
 - To use
 	- To block all pressure `doubleSolenoid.set(DoubleSolenoid.Value.kOff);`
 	- To put pressure in forward channel `doubleSolenoid.set(DoubleSolenoid.Value.kForward);`
-	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`
+	- To put pressure in reverse channel `doubleSolenoid.set(DoubleSolenoid.Value.kReverse);`  
+- Documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/DoubleSolenoid.html
 ### Use a Compressor
 **Compressors are used for compressing air. They are need for any pneumatics, as they need air at a high pressure to function.**
 - To import `import edu.wpi.first.wpilibj.Compressor;`
@@ -155,14 +160,15 @@
 - Getting fault/error information
 	- Check if compressor is disabled because current is too high `c.getCompressorCurrentTooHighFault()`
 	- Check if the compressor is disabled because output is shorted `c.getCompressorShortedFault()`
-	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`
-- More info: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Compressor.html#Compressor--
+	- Check if compressor is is not connected/not drawing enough current `c.getCompressorNotConnectedFault()`  
+- Documentation: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/Compressor.html
 
 ### Use a Limit Switch
 **Limit switches are devices that mechanically prevent an actuator from extending a certain predetermined position.**
 - To import `import edu.wpi.first.wpilibj.DigitalInput;`
 - To initialize `DigitalInput limitSwitch = new DigitalInput(1);`
-- To get value `limitSwitch.get()` (boolean)
+- To get value `limitSwitch.get()` (boolean)  
+- Documentation: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/DigitalInput.html
 
 ## Examples
 
