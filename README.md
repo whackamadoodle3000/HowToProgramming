@@ -1,4 +1,4 @@
-# How to Programming
+<h1> How to Programming </h1>
 
 **Made for FRC Team 972: Iron Claw, in Los Gatos High School, CA.**  
 **Authored by** [**@whackamadoodle3000**](https://github.com/whackamadoodle3000)
@@ -35,6 +35,7 @@
 - To use (with various control modes)
 	- Set motor absolute power `Motor.set(ControlMode.PercentOutput, value);` with value as double between -1 and 1
 	- Set motor to follow another `Motor.set(ControlMode.Follower, value);` with value as the id of the other talon
+- Documentation: http://www.ctr-electronics.com/downloads/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_w_p_i___talon_s_r_x.html
 
 ### Use Joysticks
 **Joysticks are (misleadingly) an umbrella term for all user input devices, including gamepads, joysticks, etc. Joystick objects can receive joystick and button input.**
@@ -73,6 +74,7 @@
 - To use 
 	- `talon.getSensorCollection().getQuadraturePosition();`
 	- `talon.getSensorCollection().getQuadratureVelocity();`
+- Documentation: http://www.ctr-electronics.com/downloads/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1_sensor_collection.html
 ### Use the Built-in Accelerometer
 **This is the RoboRio's built-in accelerometer. It allows you to get the acceleration in the x, y, and z directions.**
 - To import `import edu.wpi.first.wpilibj.BuiltInAccelerometer;`
@@ -419,3 +421,5 @@ public class Robot extends IterativeRobot {
 	}
 }
 ```
+<hr />
+Last Edit on January 26, 2019
