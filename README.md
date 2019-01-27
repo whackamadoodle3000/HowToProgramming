@@ -1,5 +1,8 @@
 # How to Programming
 
+**Made for FRC Team 972: Iron Claw, in Los Gatos High School, CA.**  
+**Authored by** [**@whackamadoodle3000**](https://github.com/whackamadoodle3000)
+
 ## Contents
 [Guides](#guides)   
 [&emsp; Motors](#use-motors)  
