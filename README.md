@@ -374,13 +374,14 @@ Repeated loop (like slow or fast periodic) {
 	priorActual = actual;
 	actual = <get sensor data>;
 	error = desired - actual;
-	if (Math.abs(desired-actual) < marginOfError){
-		<End of PID, Position Achieved>
-	} else {
-		integral = integral + current - desired;
-	}
+    integral = integral + (desired - actual)
 	return proportionFactor*error + integralFactor*integral + derivativeFactor*(actual-priorActual);
 }
+
+HOW TO TUNE PID WITHOUT KNOWING HOW TO TUNE PID
+Set the integral and derivative factor to zero. If the system reacts too slowly, increase proportions value; if the system is unstable (constantly overshoots) decrease proportions factor. 
+After tuning proportions value, increase integral value to prevent minute differences to the goal that the previous, proportions only system, cannot overcome. Increase if system rests out of range of the goal, decrease if overshoot prevails.
+Use derivative value to decrease overshoot (decrease its value if the system becomes too slow).
 
 ```
 #### Toggling Double Solenoids  
