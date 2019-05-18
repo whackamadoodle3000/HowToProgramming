@@ -172,6 +172,21 @@
 - To get value `limitSwitch.get()` (boolean)  
 - Documentation: http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/DigitalInput.html
 
+### Pull and push Code
+**We use Github**
+- Gitbash
+	- To pull: Navigate to your repository (inside) by typing cd and then the file path, and then type `git pull origin master` or whichever branch if it's not master
+
+- Github Desktop
+	- To initialize: Go to to repository on github and click clone or download and then open in github desktop
+	- To pull: Open up github desktop and click the pull button. 
+	- To commit: Type something in the title and description and then click the commit button
+
+### Gradle :(
+**Gradle is used to fetch dependencies and libraries so they don't need to be in the code, they can be downloaded**
+- To get the dependencies: `gradlew downloadAll`
+- To deploy code: `gradlew deploy`
+
 ## Examples
 
 #### Make Motor Spin based on Joystick Input　
